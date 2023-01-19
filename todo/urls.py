@@ -4,8 +4,9 @@ from .views import (
     todo_list_create,
     todo_home,
     todo_detail,
-    Todo,
-    TodoSerializer
+    Todos,
+    TodoDetail
+    
     
     )
 
@@ -14,6 +15,6 @@ urlpatterns = [
     path("", todo_home),
     # path("list-create/", todo_list_create),
     # path("detail/<int:id>", todo_detail),
-    path("list-create/", Todo.as_view()),
-    path("detail/<int:id>", todo_detail.as_view()),
+    path("list-create/", Todos.as_view()),
+    path("detail/<int:pk>", TodoDetail.as_view()),
 ]

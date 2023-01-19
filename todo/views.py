@@ -54,13 +54,13 @@ def todo_detail(request, id):
     
     ###################### CLASS BASE VİEWS  ########################
     
-    class Todos(ListCreateAPIView):
+class Todos(ListCreateAPIView):
         queryset = Todo.objects.filter(is_done=False)
-        serializer_class = TodoSerializer
+        serializer_class = TodoSerializer   
         
         
-    class TodoDetail(RetrieveUpdateDestroyAPIView):
-        queryset = Todo.objects.all(is_done=False)
-        serializer_class = TodoSerializer
+class TodoDetail(RetrieveUpdateDestroyAPIView):
+        queryset = Todo.objects.filter(is_done=False)
+        serializer_class = TodoSerializer   
         
     
