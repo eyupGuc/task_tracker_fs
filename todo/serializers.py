@@ -3,6 +3,7 @@ from .models import Todo
 
 
 class TodoSerializer(serializers.ModelSerializer):
-    
+
     class Meta:
-        pass
+        model = Todo
+        fields = ('id', 'task', 'description','priority', 'is_done', 'created_data',)
