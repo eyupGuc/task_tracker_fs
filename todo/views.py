@@ -37,6 +37,8 @@ def todo_detail(request):
         serializer = TodoSerializer(data=request.data,  instance=todo )
         if serializer.is_valid():
             serializer.save()
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
         
         
       
