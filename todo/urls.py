@@ -1,14 +1,20 @@
 
-from django.urls import path
+from django.urls import path,include
+from rest_framework import routers
 from .views import (
     todo_list_create,
     todo_home,
     todo_detail,
     Todos,
-    TodoDetail
-    
-    
-    )
+    TodoDetail,
+    TodoMVS
+
+
+)
+
+router = routers.DefaultRouter()
+router.register('todo', TodoMVS)
+
 
 
 urlpatterns = [
@@ -17,4 +23,8 @@ urlpatterns = [
     # path("detail/<int:id>", todo_detail),
     path("list-create/", Todos.as_view()),
     path("detail/<int:pk>", TodoDetail.as_view()),
+    path('', include(router.urls))
 ]
+
+# urlpatterns+=router.urls
+
